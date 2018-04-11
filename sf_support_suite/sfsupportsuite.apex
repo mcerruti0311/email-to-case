@@ -1,6 +1,9 @@
 <apex:page >
 
 <script>
+function salesforceKnowledge() {
+    window.open("/one/one.app#/sObject/Knowledge__kav/list?filterName=Recent");
+}
 function salesforceChangesPage() {
     window.open("https://sis.us/system-requests");
 }
@@ -55,11 +58,23 @@ function userLicenseRequests() {
     p.cold {
       color:blue;
     }
+    p.button {
+      align: center;
+    }
     body {
         background-color:white
     }
     table.strong {
       background-color: lightgray;
+      width: 600px;
+      border: 1px solid grey
+    }
+    table.button {
+      float:center;  
+      width:100%;
+    }
+    tr.button {
+        float: center;
     }
     td.rstrong {
       color:red;
@@ -71,7 +86,38 @@ function userLicenseRequests() {
       font-weight: bold;
       font-size:15px;
     }
-  </style>
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.divBox {
+  width: 500px;
+  height: 70px;
+  border: 1px solid grey;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+td {
+  padding: 10px;
+}
+
+body {
+  padding: 50px;
+}
+
+</style>
+
 <body>
   <table>
     <tr>
@@ -79,85 +125,126 @@ function userLicenseRequests() {
       <td><h1>Salesforce Support Suite</h1></td>
     </tr>
   </table>
+<h3>Hello {!$User.FirstName}!</h3>
+<div>
+<h2>The Salesfore Support Suite by Software Solutions</h2>
+<p>
+The Salesforce Support Suite gives you one place to go to start your Salesforce support request. <br />
+Whether you have a Salesforce problem, need to request a license or you would like to make a suggestion<br /> 
+for a change or something new. This is the place to start.
+</p>
+</div>
   <div>
     <p>
       <h2>How do I request a user license, change or modification to Salesforce?</h2>
     </p>
   </div>
+  <div class="divBox">
+    <p class="normal">
+      Tip: Log in to SIS Backstage before clicking one of the below buttons. <br />
+      sis.us/backstage/forms/system-requests
+    </p>
+  </div>
+<div>
 <table>
   <tr>
     <td>
-      <button onclick="userLicenseRequests()" formtarget="_blank">
+      <button class="button" onclick="userLicenseRequests()" formtarget="_blank">
         License Requests
       </button>
     </td>
     <td>
-      <button onclick="salesforceChanges()" formtarget="_blank">
+      <button class="button" onclick="salesforceChanges()" formtarget="_blank">
         Salesforce Changes
       </button>
     </td>
+    <td>
+      <button class="button" onclick="salesforceKnowledge()" formtarget="_blank">
+        Salesforce Knowledge
+      </button>
+    </td>    
   </tr>
 </table>
+</div>
+<div>
 <ol>
+  <li>If you're not logged into Backstage, do so before clicking the above buttons</li>
   <li>
-    User License and User License Modifications click the <b>License Request</b> button.
+    User License and User License Modifications click the <b>License Requests</b> button.
   </li>
   <li>
     Eureka!!! I have an idea. -- click the <b>Salesfore Changes</b> button.
   </li>
+  <li>You can also select System Requests by logging onto <a href="https://backstage.sis.us/login.aspx" target="_blank">Backstage</a> and clicking the Forms button.</li>
 </ol>
-<table class="strong" width="600px">
+</div>
+<div>
+<table class="strong">
   <tr>
     <td><apex:image url="{!$Resource.Exclamation}" /></td>
     <td class="rstrong">
-      For all user license requests select the first option <q>Request Assets,
-      SIS Emails, &amp; Salesforce User Licenses</q> on the next page.
+      For all user license requests select the first option <br />
+      <q>Request Assets, SIS Emails, &amp; Salesforce User Licenses</q><br />
+      on the next page.
     </td>
   </tr>
 </table>
+</div>
 <p></p>
-<table class="strong" width="600px">
+<div>
+<table class="strong">
   <tr>
     <td><apex:image url="{!$Resource.Exclamation}" /></td>
     <td class="bstrong">
-      For all Salesforce changes or modifications select the third option<q>
-      Changes to Web Forms and Salesforce</q> on the next page.
+      For all Salesforce changes or modifications select the third option
+      <q>Changes to Web Forms and Salesforce</q> on the next page.
     </td>
   </tr>
 </table>
-
-<div>
-  <p>
-    <table>
-      <tr>
-        <td><apex:image url="{!$Resource.support}" /></td>
-        <td><h2>How to Reach the Salesforce Admin Team</h2></td>
-      </tr>
-    </table>
-  </p>
-  <ol>
-    <li>
-      Call Salesforce Support
-      <font color="red"><b>Hot Line</b></font> at ext. 2592
-    </li>
-    <li>
-      Email Salesforce Support at sfsupport@sis.us
-    </li>
-  </ol>
 </div>
-<div>
+
+<div id="options">
   <p>
     <h2> Which option is best for me?</h2>
   </p>
 </div>
-<div>
+<apex:pageBlock title="License Requests">
+<div id="licenses">
+
+<div id="licensesTable">
+<table>
+  <tr>
+    <td><apex:image url="{!$Resource.Gender_Neutral_User}" /></td>
+    <td><h3>Users Licenses</h3></td>
+  </tr>
+</table>
+</div>
+<div id="licensesList">
+  <p>
+    <ul>
+    <li>You need to request a new license for a new employee</li>
+    <li>You need to request a license modification for a current user</li>
+    <li>You need to request more or less access for a current user</li>
+    <li>You need to request an additional feature such as Uniform Issue for a current user</li>
+    <li>You need to request a license modification for a promotion or transfer</li>
+    </ul>
+  </p>
+  </div>
+  <p>
+    Click the <b>License Request</b> button.
+  </p>
+</div>
+</apex:pageBlock>
+<apex:pageBlock title="Salesforce / Web Page Changes">
+<div id="idea">
   <table>
     <tr>
       <td><apex:image url="{!$Resource.idea}" /></td>
-      <td><h2>Eureka!!! I have an idea.</h2></td>
+      <td><h3>Eureka!!! I have an idea.</h3></td>
     </tr>
   </table>
 </div>
+
 <div id="eureka">
   <p>
     When you have an idea or would like to suggest a change to the database<br />
@@ -174,25 +261,9 @@ function userLicenseRequests() {
   Click the <b>Salesfore Changes</b> button.
   </p>
 </div>
-<div id="licenses">
-<table>
-  <tr>
-    <td><apex:image url="{!$Resource.Gender_Neutral_User}" /></td>
-    <td><h2>Users Licenses</h2></td>
-  </tr>
-</table>
-  <p>
-    <ul>
-    <li>You need to request a new license for a new employee</li>
-    <li>You need to request a license modification for a current user</li>
-    <li>You need to request a license modification for a promotion or transfer</li>
-    </ul>
-  </p>
-  <p>
-    Click the <b>License Request</b> button.
-  </p>
-</div>
-<div>
+</apex:pageblock>
+<apex:pageBlock title="Support">
+<div id="supportTable">
   <table>
     <tr>
       <td><apex:image url="{!$Resource.Life_Preserver_Ring}" /></td>
@@ -201,7 +272,8 @@ function userLicenseRequests() {
       </td>
     </tr>
   </table>
-
+</div>
+<div id="supportList">
   <ul>
     <li>A normal function doesn't work anymore.</li>
     <li>Views don't work</li>
@@ -210,7 +282,38 @@ function userLicenseRequests() {
       Our department structure has chnaged. What Salesforce changes need to be<br />
       made in Salesforce?
     </li>
+    <li> A form doesn't work or is missing information </li>
   </ul>
 </div>
+</apex:pageBlock>
+<apex:pageBlock title="Contact Information" mode="detail" >
+
+<div id="support">
+  <p>
+    <table>
+      <tr>
+        <td><apex:image url="{!$Resource.support}" /></td>
+        <td><h2>Contact the Salesforce Admin Team</h2></td>
+      </tr>
+    </table>
+  </p>
+  <ol>
+    <li>
+      Call Salesforce Support
+      <font color="red"><b>Hot Line</b></font> at ext. 2592
+    </li>
+    <li>
+      Email Salesforce Support at sfsupport@sis.us
+    </li>
+  </ol>
+  <p class="normal">
+  When you send an email to sfsupport@sis.us a Case is created in Salesforce<br />
+  that can be tracked and escalated when necessary.  It also provides a means of communicating about the <br />
+  case, and follow up with answers.
+
+  </p>
+</div>
+
+</apex:pageBlock>
 </body>
 </apex:page>
