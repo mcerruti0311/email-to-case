@@ -150,7 +150,7 @@
       <p>
         The <b>Salesforce Support Suite</b> gives you one place to go to start your Salesforce support request. <br />
         Whether you have a Salesforce problem, need to request a user license, you would like to make a <br />
-        suggestion for a change, or you have an idea for something new. This is the place to start.
+        suggestion for a change, or you have an idea for something new, this is the place to start.
       </p>
     </div>
     <div>
