@@ -1,6 +1,9 @@
-<apex:page sidebar="true" standardController="Case" >
+<apex:page >
 
 <script>
+function salesforceKnowledge() {
+    window.open("/one/one.app#/sObject/Knowledge__kav/list?filterName=Recent");
+}
 function salesforceChangesPage() {
     window.open("https://sis.us/system-requests");
 }
@@ -67,7 +70,7 @@ function userLicenseRequests() {
       border: 1px solid grey
     }
     table.button {
-      float:center;
+      float:center;  
       width:100%;
     }
     tr.button {
@@ -123,6 +126,14 @@ body {
     </tr>
   </table>
 <h3>Hello {!$User.FirstName}!</h3>
+<div>
+<h2>The Salesfore Support Suite by Software Solutions</h2>
+<p>
+The Salesforce Support Suite gives you one place to go to start your Salesforce support request. <br />
+Whether you have a Salesforce problem, need to request a license or you would like to make a suggestion<br /> 
+for a change or something new. This is the place to start.
+</p>
+</div>
   <div>
     <p>
       <h2>How do I request a user license, change or modification to Salesforce?</h2>
@@ -147,6 +158,11 @@ body {
         Salesforce Changes
       </button>
     </td>
+    <td>
+      <button class="button" onclick="salesforceKnowledge()" formtarget="_blank">
+        Salesforce Knowledge
+      </button>
+    </td>    
   </tr>
 </table>
 </div>
@@ -154,11 +170,12 @@ body {
 <ol>
   <li>If you're not logged into Backstage, do so before clicking the above buttons</li>
   <li>
-    User License and User License Modifications click the <b>License Request</b> button.
+    User License and User License Modifications click the <b>License Requests</b> button.
   </li>
   <li>
     Eureka!!! I have an idea. -- click the <b>Salesfore Changes</b> button.
   </li>
+  <li>You can also select System Requests by logging onto <a href="https://backstage.sis.us/login.aspx" target="_blank">Backstage</a> and clicking the Forms button.</li>
 </ol>
 </div>
 <div>
@@ -191,6 +208,7 @@ body {
     <h2> Which option is best for me?</h2>
   </p>
 </div>
+<apex:pageBlock title="License Requests">
 <div id="licenses">
 
 <div id="licensesTable">
@@ -216,6 +234,8 @@ body {
     Click the <b>License Request</b> button.
   </p>
 </div>
+</apex:pageBlock>
+<apex:pageBlock title="Salesforce / Web Page Changes">
 <div id="idea">
   <table>
     <tr>
@@ -224,6 +244,7 @@ body {
     </tr>
   </table>
 </div>
+
 <div id="eureka">
   <p>
     When you have an idea or would like to suggest a change to the database<br />
@@ -240,7 +261,8 @@ body {
   Click the <b>Salesfore Changes</b> button.
   </p>
 </div>
-
+</apex:pageblock>
+<apex:pageBlock title="Support">
 <div id="supportTable">
   <table>
     <tr>
@@ -260,8 +282,12 @@ body {
       Our department structure has chnaged. What Salesforce changes need to be<br />
       made in Salesforce?
     </li>
+    <li> A form doesn't work or is missing information </li>
   </ul>
 </div>
+</apex:pageBlock>
+<apex:pageBlock title="Contact Information" mode="detail" >
+
 <div id="support">
   <p>
     <table>
@@ -282,10 +308,12 @@ body {
   </ol>
   <p class="normal">
   When you send an email to sfsupport@sis.us a Case is created in Salesforce<br />
-  that can be tracked.  It also provides a means of communicating about the <br />
+  that can be tracked and escalated when necessary.  It also provides a means of communicating about the <br />
   case, and follow up with answers.
 
   </p>
 </div>
+
+</apex:pageBlock>
 </body>
 </apex:page>
