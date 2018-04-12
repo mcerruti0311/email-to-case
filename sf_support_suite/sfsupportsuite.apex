@@ -1,7 +1,6 @@
-<apex:page >
+<apex:page applyBodyTag="false" applyHtmlTag="true" >
 
   <script>
-
     function salesforceKnowledge() {
       window.open("/one/one.app#/sObject/Knowledge__kav/list?filterName=Recent");
     }
@@ -25,7 +24,6 @@
       );
       if(userLicense) salesforceChangesPage();
     }
-
   </script>
 
   <style>
@@ -97,25 +95,27 @@
       color:red;
       font-size:15px;
       font-weight: bold;
+      vertical-align: middle;
     }
 
     td.bstrong {
       color:blue;
       font-size:15px;
       font-weight: bold;
+      vertical-align: middle;
     }
 
     .button {
-      background-color: #4CAF50;
+      background: #4CAF50;
       border: none;
       color: white;
-      cursor: pointer;
       display: inline-block;
       font-size: 16px;
       margin: 4px 2px;
-      padding: 15px 32px;
+      padding: 15px 15px;
       text-align: center;
       text-decoration: none;
+      width: 250px;
     }
 
     .divBox {
@@ -128,188 +128,113 @@
 
     td {
       padding: 10px;
+      vertical-align: middle;
     }
 
     body {
-      padding: 50px;
+      margin: 50px;
     }
 
-</style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 25% 30%;
+        background-color: white;
+        padding: 1px;
+    }
+    .grid-item {
+        background-color: white;
+        // border: 1px solid black;
+        border: none;
+        padding: 1px;
+        font-size: 30px;
+        text-align: left;
+}
+  </style>
 
   <body>
     <table>
       <tr>
         <td><apex:image url="{!$Resource.SIS_Logo}" /></td>
-        <td><h1>Salesforce Support Suite</h1></td>
+        <td><h1>Salesforce Support Suite by Software Solutions</h1></td>
       </tr>
     </table>
-    <h2>Hello {!$User.FirstName}!</h2>
-    <p></p>
-    <div>
-      <h2>The Salesfore Support Suite by Software Solutions</h2>
-      <p>
-        The <b>Salesforce Support Suite</b> gives you one place to go to start your Salesforce support request. <br />
-        Whether you have a Salesforce problem, need to request a user license, you would like to make a <br />
-        suggestion for a change, or you have an idea for something new, this is the place to start.
-      </p>
-    </div>
-    <div>
-      <p>
-        <h2>Request a user license, change or modification to Salesforce or web form?</h2>
-      </p>
-    </div>
-    <table class="strong">
-      <tr>
-        <td><apex:image url="{!$Resource.info_point}" /></td>
-        <td class="rstrong">
-        Tip: Log onto SIS Backstage before clicking one of the buttons.
-        </td>
-      </tr>
-    </table>
-    <div>
-    <table>
-      <tr>
-        <td>
-          <button class="button" onclick="userLicenseRequests()" formtarget="_blank">
-            License Requests
-          </button>
-        </td>
-        <td>
-          <button class="button" onclick="salesforceChanges()" formtarget="_blank">
-            Salesforce Changes
-          </button>
-        </td>
-        <td>
-          <button class="button" onclick="salesforceKnowledge()" formtarget="_blank">
-            Salesforce Knowledge
-          </button>
-        </td>
-      </tr>
-    </table>
-    </div>
-    <div>
-      <ol>
-        <li>
-          If you're not logged into Backstage, do so before clicking the above buttons
-        </li>
-        <li>
-          User License and User License Modifications click the <b>License Requests</b> button.
-        </li>
-        <li>
-          Eureka!!! I have an idea. -- click the <b>Salesfore Changes</b> button.
-        </li>
-        <li>
-          You can also select System Requests by logging onto
-          <a href="https://backstage.sis.us/login.aspx" target="_blank">Backstage</a>
-          and clicking the Forms button.
-        </li>
-      </ol>
-    </div>
-    <div>
-    <table class="strong">
-      <tr>
-        <td>
-          <apex:image url="{!$Resource.Exclamation}" />
-        </td>
-        <td class="rstrong">
-          For all user license requests select the first option <q>Request Assets, SIS Emails, &amp; Salesforce User Licenses</q> on the next page.
-        </td>
-      </tr>
-    </table>
-    </div>
-    <p></p>
-    <div>
-    <table class="strong">
-      <tr>
-        <td>
-          <apex:image url="{!$Resource.Exclamation}" />
-        </td>
-        <td class="bstrong">
-          For all Salesforce changes or modifications select the third option <q>Changes to Web Forms and Salesforce</q> on the next page.
-        </td>
-      </tr>
-    </table>
-    </div>
-    <div id="options">
-      <p>
-        <h2> Which option is best for me?</h2>
-      </p>
-    </div>
-    <apex:pageBlock title="License Requests">
-      <div id="licensesTable">
-        <table>
-          <tr>
-            <td><apex:image url="{!$Resource.Gender_Neutral_User}" /></td>
-            <td><h3>Users Licenses</h3></td>
-          </tr>
-        </table>
-      </div>
-      <div id="licensesList">
-        <p>
-          <ul>
-            <li>
-              You need to request a new license for a new employee
-            </li>
-            <li>
-              You need to request a license modification for a current user
-            </li>
-            <li>
-              You need to request more or less access for a current user
-            </li>
-            <li>
-              You need to request an additional feature such as Uniform Issue for a current user
-            </li>
-            <li>
-              You need to request a license modification for a promotion or transfer
-            </li>
-          </ul>
-        </p>
-      </div>
-      <p>
-        Click the <b>License Request</b> button.
-      </p>
-    </apex:pageBlock>
-    <p></p>
-    <apex:pageBlock title="Salesforce / Web Form Changes">
-      <div id="idea">
-        <table>
-          <tr>
-            <td>
-              <apex:image url="{!$Resource.idea}" />
-            </td>
-            <td>
-              <h3>Eureka!!! I have an idea.</h3>
-            </td>
-          </tr>
-        </table>
-      </div>
 
-      <div id="eureka">
-        <p>
-          When you have an idea or would like to suggest a change to the database<br />
-          structure:
-        </p>
+    <div class="grid-container">
+      <div class="grid-item">
+        <button class="button" onclick="userLicenseRequests()" formtarget="_blank">
+        License Requests
+        </button>
       </div>
-      <div id="eurekaList">
+      <div class="grid-item">
+        <h3>License Requests</h3>
         <ul>
           <li>
-            Fields or field values
+            New employee
+          </li>
+          <li>
+            Modification for a current user
+          </li>
+          <li>
+            More or less access for a current user
+          </li>
+          <li>
+            Additional features such as Uniform Issue for a current user
+          </li>
+          <li>
+            License modification for a promotion or transfer
+          </li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <button class="button" onclick="salesforceChanges()" formtarget="_blank">
+          Changes to Salesforce
+        </button>
+      </div>
+      <div class="grid-item">
+        <h3>Changes to Salesforce or Web Forms</h3>
+        <ul>
+          <li>
+            Automation
+          </li>
+          <li>
+            Email alerts and templates
+          </li>
+          <li>
+            Fields
+          </li>
+          <li>
+            Field values
           </li>
           <li>
             Page layouts
           </li>
-          <li>
-            Automation
-          </li>
         </ul>
       </div>
-      <div>
-        <p class="normal">
-          Click the <b>Salesfore Changes</b> button.
-        </p>
+      <div class="grid-item">
+       <button class="button" onclick="salesforceKnowledge()" formtarget="_blank">
+         Salesforce FAQ
+       </button>
       </div>
-    </apex:pageblock>
-    <p></p>
+      <div class="grid-item">
+        <h3>Salesforce FAQ</h3>
+          <p>
+            Software Solutions maintains Salesforce FAQ known as <b>Knowledge</b>. <br />
+            There you can find answers to common Salesfore questions.
+          </p>
+          <p>
+            This is a great place to look for answers to SIS Salesforce questions <br />
+            on features and functions. New content is added almost daily so check <br />
+            back often.
+          </p>
+        </div>
+      </div>
+    <div>
+    <p class="normal">
+      You can also select System Requests by logging onto
+      <a href="https://backstage.sis.us/login.aspx" target="_blank">Backstage</a>
+      and clicking the Forms button.
+    </p>
+    </div>
     <apex:pageBlock title="Support">
       <div id="supportTable">
         <table>
@@ -326,44 +251,30 @@
       <div id="supportList">
         <ul>
           <li>
+            Mass COS uploads, changes, or voids
+          </li>
+          <li>
+            UTM Issues
+          </li>
+          <li>
             A normal function doesn't work anymore.
           </li>
           <li>
-            Views don't work
+            Views don't work the way you expect them to work
           </li>
           <li>
-            Reports don't work the way you would like them
+            Reports don't work the way you would like them to
           </li>
           <li>
-            Our department structure has chnaged. What Salesforce changes need to be made in Salesforce?
+            Department structure changes. What Salesforce changes are necessary?
           </li>
           <li>
-            A form doesn't work or is missing information
+            A web form no longer works or is missing information
           </li>
         </ul>
       </div>
     </apex:pageBlock>
-    <p></p>
-    <apex:pageBlock title="Salesforce Knowledge">
-      <div id="knowledgeTable">
-        <table>
-          <tr>
-            <td>
-              <apex:image url="{!$Resource.open_book}" />
-            </td>
-            <td>
-              <h2>Knowledge</h2>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <p>
-        Software Solutions maintains Salesforce Knowledge as a place to find answers to Frequently Asked Questions (FAQ).<br />
-        This is a great place to look for answers to the SIS Salesforce questions and features. <br />
-        New content is added almost daily. Click the Salesforce Knowledge button.
-      </p>
-    </apex:pageBlock>
-    <p></p>
+
     <apex:pageBlock title="Contact Information" mode="detail" >
       <div id="supportTable">
         <table>
@@ -383,15 +294,14 @@
             Call Salesforce Support <font color="red"><b>Hot Line</b></font> at ext. 2592
           </li>
           <li>
-            Email Salesforce Support at sfsupport@sis.us
+            Email Salesforce Support at <b>sfsupport@sis.us</b>
           </li>
         </ol>
       </div>
-      <p class="normal">
-        When you send an email to sfsupport@sis.us a Case is created in Salesforce<br />
-        that can be tracked, and escalated when necessary.  It also provides a means of communicating about the <br />
-        case via email, and follow up with answers.
-      </p>
     </apex:pageBlock>
   </body>
 </apex:page>
+
+<!-- Notes
+
+-->
