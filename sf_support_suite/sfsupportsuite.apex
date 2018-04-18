@@ -1,4 +1,4 @@
-<apex:page applyBodyTag="false" applyHtmlTag="true" >
+<apex:page standardController="Case" lightningStylesheets="true" applyBodyTag="false" applyHtmlTag="true">
 
   <script>
     function salesforceKnowledge() {
@@ -61,14 +61,6 @@
       font-size:15px;
     }
 
-    p.hot {
-      color:red;
-    }
-
-    p.cold {
-      color:blue;
-    }
-
     p.button {
       align: center;
     }
@@ -77,11 +69,6 @@
       background-color:white
     }
 
-    table.strong {
-      background-color: lightgray;
-      border: 1px solid grey
-      width: 600px;
-    }
 
     table.button {
       float:center;
@@ -89,41 +76,6 @@
     }
     tr.button {
       float: center;
-    }
-
-    td.rstrong {
-      color:red;
-      font-size:15px;
-      font-weight: bold;
-      vertical-align: middle;
-    }
-
-    td.bstrong {
-      color:blue;
-      font-size:15px;
-      font-weight: bold;
-      vertical-align: middle;
-    }
-
-    .button {
-      background: #4CAF50;
-      border: none;
-      color: white;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      padding: 15px 15px;
-      text-align: center;
-      text-decoration: none;
-      width: 250px;
-    }
-
-    .divBox {
-      background-color: lightgray;
-      border: 1px solid grey;
-      height: 70px;
-      padding: 10px;
-      width: 500px;
     }
 
     td {
@@ -158,10 +110,10 @@
         <td><h1>Salesforce Support Suite by Software Solutions</h1></td>
       </tr>
     </table>
-
+    <apex:pageBlock >
     <div class="grid-container">
       <div class="grid-item">
-        <button class="button" onclick="userLicenseRequests()" formtarget="_blank">
+        <button class="slds-button slds-button_brand" onclick="userLicenseRequests()" formtarget="_blank">
         License Requests
         </button>
       </div>
@@ -186,7 +138,7 @@
         </ul>
       </div>
       <div class="grid-item">
-        <button class="button" onclick="salesforceChanges()" formtarget="_blank">
+        <button class="slds-button slds-button_brand" onclick="salesforceChanges()" formtarget="_blank">
           Changes to Salesforce
         </button>
       </div>
@@ -211,7 +163,7 @@
         </ul>
       </div>
       <div class="grid-item">
-       <button class="button" onclick="salesforceKnowledge()" formtarget="_blank">
+       <button class="slds-button slds-button_brand" onclick="salesforceKnowledge()" formtarget="_blank">
          Salesforce FAQ
        </button>
       </div>
@@ -235,6 +187,7 @@
       and clicking the Forms button.
     </p>
     </div>
+    </apex:pageBlock>
     <apex:pageBlock title="Support">
       <div id="supportTable">
         <table>
@@ -275,7 +228,7 @@
       </div>
     </apex:pageBlock>
 
-    <apex:pageBlock title="Contact Information" mode="detail" >
+    <apex:pageBlock title="How to Get Support" mode="detail" >
       <div id="supportTable">
         <table>
           <tr>
@@ -297,6 +250,10 @@
             Email Salesforce Support at <b>sfsupport@sis.us</b>
           </li>
         </ol>
+        Note: Please do not add additional recipients to your email. Only send the
+        email to sfsupport@sis.us without cc or bcc.  When you receive confirmation
+        that a case has been created you may reply to that email and add cc and
+        bcc recipients as needed.
       </div>
     </apex:pageBlock>
   </body>
